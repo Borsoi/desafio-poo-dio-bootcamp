@@ -1,16 +1,17 @@
 package br.com.dio.desafio.dominio;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Curso {
+@Getter
+@Setter
+public class Curso extends Conteudo {
 
     private String titulo;
     private String descricao;
     private int cargaHoraria;
 
+    @Override
+    public double calcularXp() {
+        return XP_PADRAO * cargaHoraria;
+    }
 }
