@@ -2,7 +2,9 @@ package br.com.dio.desafio.dominio;
 
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -10,6 +12,8 @@ import java.util.Set;
 public class Desenvolvedor {
 
     private String nome;
+    private LocalDate dataNascimento;
+    private Integer idade = Objects.nonNull(dataNascimento) ? LocalDate.now().until(dataNascimento).getYears() : null;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
